@@ -21,10 +21,11 @@ async function startServer () {
     // Ensure express is able to send back with the .json function
     app.use(express.json())
     
-    // app.use(express.static(
-    //     path.resolve(__dirname, '../dist'),
-    //     { maxAge: '1y', etag: false }
-    // ))
+    app.use(express.static(
+        path.resolve(__dirname, '../dist'),
+        { maxAge: '1y', etag: false }
+    ))
+    
     // GET End Points
     // get all active users
     app.get('/api/v1/active-users' , async (req, res) => {
