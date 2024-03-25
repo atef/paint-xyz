@@ -5,7 +5,7 @@ import { MongoClient } from "mongodb"
 // Wrap endpoints in an async function to use just one connection to the DB
 async function startServer () {
     //DB Connection string
-    const url = `mongodb+srv://public_admin:J9vtjhX3EusQ.K!@fullstackcodechallenge.3jhhzso.mongodb.net/?retryWrites=true&w=majority&appName=FullStackCodeChallenge`
+    const url = `mongodb+srv://<username goes here>:<password goes here>@fullstackcodechallenge.3jhhzso.mongodb.net/?retryWrites=true&w=majority&appName=FullStackCodeChallenge`
     
     // Create DB Driver Client
     const client = new MongoClient(url)
