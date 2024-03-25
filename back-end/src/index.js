@@ -1,9 +1,6 @@
 import express from "express"
 import { MongoClient } from "mongodb"
-import {paints as paintsRaw, users as usersRaw} from '../data.js'
 
-let paints = paintsRaw
-let users = usersRaw
 
 // Wrap endpoints in an async function to use just one connection to the DB
 async function startServer () {
@@ -19,11 +16,14 @@ async function startServer () {
 
     // Create express app and the port number
     const app = express();
-    const PORT = 8000
 
     // Ensure express is able to send back with the .json function
     app.use(express.json())
     
+    app.use(express.static(
+        path.resolve(__dirname, '../dist'),
+        { maxAge: '1y', etag: false }
+    ))
     // GET End Points
     // get all active users
     app.get('/api/v1/active-users' , async (req, res) => {
@@ -89,6 +89,11 @@ async function startServer () {
         res.json(users)
     })
 
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__direname, '../dist/index.html'))
+    })
+
+    const PORT = process.env.PORT || 8000
 
     app.listen(PORT, () => {
         console.log(`server is listening on port ${PORT}`)
@@ -96,7 +101,3 @@ async function startServer () {
 }
 
 startServer()
-
-// db codechallande-db
-// user public_admin
-// pass J9vtjhX3EusQ.K!

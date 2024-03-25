@@ -45,9 +45,8 @@
     
     apiService.putUser(props.userId, userData.name, userData.role, userData.isActive)
     .then((response) => {
-      console.log (response.data);
       // redirect back to teh list of Users
-      //router.push({ name : 'users-list', params : { currentUserId: loggedinUser.value.id}})
+      router.push({ name : 'users-list', params : { currentUserId: loggedinUser.value.id}})
     })
     .catch((error) => {
         console.log(error)
@@ -80,7 +79,7 @@
 
     </div>
   </div>
-  <!-- Display a message if no valid user found-->
+  <!-- Display a message if no valid user found -->
   <div v-else>
       <h1>Oops</h1>    
       <p>You must be a logged in user to view the content of this page. <router-link :to="{ name : 'login'}" >Login</router-link></p>
