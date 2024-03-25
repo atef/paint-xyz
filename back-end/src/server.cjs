@@ -1,6 +1,5 @@
 import express from "express"
 import { MongoClient } from "mongodb"
-
 import 'dotenv/config'
 
 // Wrap endpoints in an async function to use just one connection to the DB
@@ -25,7 +24,7 @@ async function startServer () {
         path.resolve(__dirname, '../dist'),
         { maxAge: '1y', etag: false }
     ))
-    
+
     // GET End Points
     // get all active users
     app.get('/api/v1/active-users' , async (req, res) => {
