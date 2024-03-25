@@ -19,7 +19,7 @@
   })
 	
   // The login function will simply load the dashboard view and pass the current userId as a logged in user
-  function login(userId) {
+  const login = (userId) => {
     router.push({ name : 'dashboard', params : { currentUserId : userId}})
   }
 

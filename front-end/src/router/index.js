@@ -27,12 +27,7 @@ const router = createRouter({
       props: true,
       component: PaintListView
   },
-  // {
-  //     path: '/loggedinUser/:currentUserId/paints/:paintID',
-  //     name: 'paint-details',
-  //     component: PaintDetails
-  // },
-    {
+  {
         path: '/loggedinUser/:currentUserId/users',
         name: 'users-list',
         props: true,
